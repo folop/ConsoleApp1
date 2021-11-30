@@ -6,45 +6,59 @@ namespace ConsoleApp4
     {
         static void Main(string[] args)
         {
+            var hra = true;
+            while (hra == true)
+            {
+                var menu = true;
+                while(menu == true) {
+                    Console.WriteLine("");
+                    Console.WriteLine("0 - hrat");
+                    Console.WriteLine("1 - zebricek");
+                    Console.WriteLine("2 - pravidla");
+                    Console.WriteLine("3 - o hre");
+                    Console.WriteLine("4 - ukoncit");
+                    Console.WriteLine("");
 
-            var menu = true;
-            while(menu == true) {
-                Console.WriteLine("");
-                Console.WriteLine("0 - hrat");
-                Console.WriteLine("1 - zebricek");
-                Console.WriteLine("2 - pravidla");
-                Console.WriteLine("3 - o hre");
-                Console.WriteLine("4 - ukoncit");
-                Console.WriteLine("");
+                    string volba = (Console.ReadLine());
 
-                string volba = (Console.ReadLine());
+                    if (volba == "0")
+                    {
+                        Console.WriteLine("hrat");
 
-                if (volba == "0")
-                {
-                    Console.WriteLine("hrat");
+                    }
+                    else if (volba == "1")
+                    {
+                        Console.WriteLine("zebricek");
+                    }
+                    else if (volba == "2")
+                    {
+                        Console.WriteLine("hrac na zacatku hry obdrzi dve karty a pak mu dealer nabizi dalsi");
+                        Console.WriteLine("zakladni princip hry je, že hrac musi mit hodnotu vyssi nez dealer, ale nesmi prekrocit 21");
+                        Console.WriteLine("karty od 2 do 10 maji stejnou hodnotu, jako je uvedena na karte");
+                        Console.WriteLine("J, Q a K maji hodnotu 10");
+                        Console.WriteLine("A muze mit hodnotu bud 11 nebo 1");
+                        Console.WriteLine("barvy karet nemaji zadny vyznam");
+                       
+                    }
+                    else if (volba == "3")
+                    {
+                        Console.WriteLine("Blackjack nebo také black jack je karetní hra často provozovaná v kasinu. Odlišná je především tím, že není jako většina hazardních her založena pouze na náhodě,");
+                        Console.WriteLine("ale umožňuje pomocí různých strategií zvýšit pravděpodobnost výhry (především metoda tzv. počítání karet, kdy se hráč pokouší „zapamatovat“ tažené karty, má velkou publicitu). Blackjack se hraje s tzv. žolíkovými kartami.");
+                        Console.WriteLine("Předchůdcem blackjacku je francouzská karetní hra vingt-et-un („dvacet jedna“), která se objevila ve francouzských kasinech kolem roku 1700.");
+                        Console.WriteLine("Varianta této hry, téměř totožná po stránce pravidel (liší se vlastně pouze v terminologii a způsobu počítání), ale hraná s mariášovými kartami, se v českých zemích často hrála a hraje pod názvem jednadvacet či oko bere.");
+                    }
+                    else if (volba == "4")
+                    {
+                        menu = false;
+                        hra = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("chybny input");
+                    }
+                    Console.WriteLine("");
+                }
 
-                }
-                else if (volba == "1")
-                {
-                    Console.WriteLine("zebricek");
-                }
-                else if (volba == "2")
-                {
-                    Console.WriteLine("pravidla");
-                }
-                else if (volba == "3")
-                {
-                    Console.WriteLine("o hre");
-                }
-                else if (volba == "4")
-                {
-                    Console.WriteLine("ukoncit");
-                }
-                else
-                {
-                    Console.WriteLine("chybny input");
-                }
-                Console.WriteLine("");
             }
         }
     }
