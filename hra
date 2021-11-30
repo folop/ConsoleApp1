@@ -1,0 +1,51 @@
+using System;
+
+namespace ConsoleApp4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            var menu = true;
+            while(menu == true) {
+                Console.WriteLine("");
+                Console.WriteLine("0 - hrat");
+                Console.WriteLine("1 - zebricek");
+                Console.WriteLine("2 - pravidla");
+                Console.WriteLine("3 - o hre");
+                Console.WriteLine("4 - ukoncit");
+                Console.WriteLine("");
+
+                string volba = (Console.ReadLine());
+
+                if (volba == "0")
+                {
+                    Console.WriteLine("hrat");
+
+                }
+                else if (volba == "1")
+                {
+                    Console.WriteLine("zebricek");
+                }
+                else if (volba == "2")
+                {
+                    Console.WriteLine("pravidla");
+                }
+                else if (volba == "3")
+                {
+                    Console.WriteLine("o hre");
+                }
+                else if (volba == "4")
+                {
+                    Console.WriteLine("ukoncit");
+                }
+                else
+                {
+                    Console.WriteLine("chybny input");
+                }
+                Console.WriteLine("");
+            }
+        }
+    }
+}
