@@ -8,6 +8,9 @@ namespace ConsoleApp1
     {
         Balicek Ruka;
 
+        public string Jmeno;
+        public int Penize;
+
         public Hrac()
         {
             Ruka = new Balicek();
