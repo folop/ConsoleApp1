@@ -7,7 +7,7 @@ namespace ConsoleApp1
 {
     class Hrac
     {
-        Balicek Ruka;
+        public Balicek Ruka;
 
         public string Jmeno;
         public int Penize;
