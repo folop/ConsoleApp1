@@ -55,7 +55,7 @@ namespace ConsoleApp1
                                             Console.WriteLine("na to prece nemas penize :c");
 
                                         } else if (vklad <= 0)
-                                        {
+                                        { 
                                             Console.WriteLine("musis neco vsadit :c");
 
                                         }
