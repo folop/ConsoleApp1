@@ -8,7 +8,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            string[] ids = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "A", "J", "K", "Q" };
+            string[] ids = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "K", "Q" };
             string[] barvy = { "♥", "♦", "♣", "♠" };
             var i_nick = true;
             var i_vklad = true;
@@ -63,12 +63,12 @@ namespace ConsoleApp1
                                             Balicek pan_balicek = new Balicek();
                                             int hodnota;
 
-
+                                            
                                             foreach (string barva in barvy)
                                             {
 
                                                 foreach (string id in ids)
-                                                {
+                                                {  
                                                     if (id == "J") {
                                                         hodnota = Int32.TryParse(id, out hodnota) ? hodnota : id == "J" ? 10 : 1;
                                                     } else if (id == "Q")
@@ -142,9 +142,10 @@ namespace ConsoleApp1
                                             //var mlem = 10;
                                             while (prub == true)
                                             {
+                                                
                                                 mlem = Hrac.HodnotaVRuce(ten_co_hraje.Ruka);
-                                                Console.WriteLine(mlem);
-                                                if (mlem <= 200)
+                                              
+                                                if (mlem <= 20)
                                                 {
                                                     Console.WriteLine("    ");
                                                     Console.WriteLine("0 - double");
@@ -157,7 +158,7 @@ namespace ConsoleApp1
 
 
                                                     if (v_hra == "0") {
-
+                                                        Console.WriteLine("double");
                                                     }else if (v_hra == "1"){
                                                         ten_co_hraje.Ruka.Push(pan_balicek.Pop());
 
@@ -198,9 +199,164 @@ namespace ConsoleApp1
                                                         }
                                                         Console.WriteLine("    ");
                                                     }
-                                                    else if (v_hra == "2" ) { 
+                                                    else if (v_hra == "2" ) {
+                                                        Console.WriteLine(Hrac.HodnotaVRuce(dealer_ruka));
+                                                        Console.WriteLine("  ");
+                                                        Console.WriteLine("Tvoje karty:");
+                                                        Console.WriteLine("  ");
+                                                        foreach (var kat in ten_co_hraje.Ruka)
+                                                        {
+                                                            Console.Write(kat.ID);
+                                                            Console.Write(kat.Barva);
+                                                            Console.Write("    ");
 
-                                                    }else {
+
+                                                        }
+                                                        Console.WriteLine("    ");
+
+                                                        Console.WriteLine("  ");
+                                                        Console.WriteLine("Dealerovi karty karty:");
+                                                        Console.WriteLine("  ");
+                                                        dolu = 1;
+                                                        foreach (var kat in dealer_ruka)
+                                                        {
+                                                            
+                                                            Console.Write(kat.ID);
+                                                            Console.Write(kat.Barva);
+                                                            Console.Write("    ");
+
+                                                             
+
+
+                                                            
+                                                               
+                                                            
+                                                        }
+                                                        Console.WriteLine("    ");
+
+                                                        var dddd = Hrac.HodnotaVRuce(dealer_ruka);
+
+                                                        /////////////////////////////////////////////////////////////////////////////16
+                                                        while (dddd <= 16) {
+                                                            dealer_ruka.Push(pan_balicek.Pop());
+
+                                                            Console.WriteLine("  ");
+                                                            Console.WriteLine("Tvoje karty:");
+                                                            Console.WriteLine("  ");
+                                                            foreach (var kat in ten_co_hraje.Ruka)
+                                                            {
+                                                                Console.Write(kat.ID);
+                                                                Console.Write(kat.Barva);
+                                                                Console.Write("    ");
+
+
+                                                            }
+                                                            Console.WriteLine("    ");
+
+                                                            Console.WriteLine("  ");
+                                                            Console.WriteLine("Dealerovi karty karty:");
+                                                            Console.WriteLine("  ");
+                                                            dolu = 1;
+                                                            foreach (var kat in dealer_ruka)
+                                                            {
+
+                                                                Console.Write(kat.ID);
+                                                                Console.Write(kat.Barva);
+                                                                Console.Write("    ");
+
+
+                                                            }
+
+                                                            dddd = Hrac.HodnotaVRuce(dealer_ruka);
+
+
+
+
+
+                                                        }//////////////////////////////////umru//////////////////////////////////
+
+                                                        var hracicka = Hrac.HodnotaVRuce(ten_co_hraje.Ruka);
+                                                        var nuzky_jsou_ostre = Hrac.HodnotaVRuce(dealer_ruka);
+                                                        dddd = Hrac.HodnotaVRuce(dealer_ruka);
+                                                        if (dddd > 21 ) {
+                                                            Console.WriteLine("  ");
+                                                            Console.WriteLine("dealer ma víc nez 21 hahahahahha debílek");
+                                                           
+
+                                                            var pokracovat = true;
+                                                            while (pokracovat == true)
+                                                            {
+
+                                                                Console.WriteLine("chceš pokračovat ve hře?");
+                                                                Console.WriteLine("0 - ano");
+                                                                Console.WriteLine("1 - ne");
+                                                                Console.WriteLine("    ");
+
+                                                                Console.Write("-->");
+                                                                string pokracovat_1 = Console.ReadLine();
+
+
+                                                                if (pokracovat_1 == "0")
+                                                                {
+                                                                    pokracovat = false;
+                                                                }
+                                                                else if (pokracovat_1 == "1")
+                                                                {
+                                                                    i_vklad = false;
+                                                                    i_nick = false;
+                                                                    hra = false;
+                                                                    pokracovat = false;
+                                                                    break;
+                                                                }
+                                                                else
+                                                                {
+                                                                    Console.WriteLine("špatný input");
+                                                                }
+
+
+                                                            }
+                                                        }
+                                                        else if (nuzky_jsou_ostre == 21 ) {
+                                                            var pokracovat = true;
+                                                            while (pokracovat == true)
+                                                            {
+
+                                                                Console.WriteLine("chceš pokračovat ve hře?");
+                                                                Console.WriteLine("0 - ano");
+                                                                Console.WriteLine("1 - ne");
+                                                                Console.WriteLine("    ");
+
+                                                                Console.Write("-->");
+                                                                string pokracovat_1 = Console.ReadLine();
+
+
+                                                                if (pokracovat_1 == "0")
+                                                                {
+                                                                    pokracovat = false;
+                                                                }
+                                                                else if (pokracovat_1 == "1")
+                                                                {
+                                                                    i_vklad = false;
+                                                                    i_nick = false;
+                                                                    hra = false;
+                                                                    pokracovat = false;
+                                                                    break;
+                                                                }
+                                                                else
+                                                                {
+                                                                    Console.WriteLine("špatný input");
+                                                                }
+
+
+                                                            }
+                                                        }
+
+
+
+
+
+                                                    }
+                                                    else {
                                                         Console.WriteLine("špatný input");
                                                     }
                                                 }else
