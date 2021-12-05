@@ -63,17 +63,34 @@ namespace ConsoleApp1
                                             Balicek pan_balicek = new Balicek();
                                             int hodnota;
 
+
                                             foreach (string barva in barvy)
                                             {
 
                                                 foreach (string id in ids)
                                                 {
-                                                    hodnota = Int32.TryParse(id, out hodnota) ? hodnota : id == "A" ? 10 : 1;
+                                                    if (id == "J") {
+                                                        hodnota = Int32.TryParse(id, out hodnota) ? hodnota : id == "J" ? 10 : 1;
+                                                    } else if (id == "Q")
+                                                    {
+                                                        hodnota = Int32.TryParse(id, out hodnota) ? hodnota : id == "Q" ? 10 : 1;
+                                                    }
+                                                    else if (id == "J")
+                                                    {
+                                                        hodnota = Int32.TryParse(id, out hodnota) ? hodnota : id == "K" ? 10 : 1;
+                                                    }else { 
+                                                    hodnota = Int32.TryParse(id, out hodnota) ? hodnota : id == "A" ? 10 : 1 ;
+                                                    }
+
+
                                                     pan_balicek.Push(new Karta(id, barva, hodnota));
+
 
                                                 }
                                             }
                                             new Balicek(pan_balicek.OrderBy(karta => System.Guid.NewGuid()).ToArray());
+
+                                            Console.WriteLine(Hrac.HodnotaVRuce(pan_balicek));
 
                                         }
 
@@ -140,5 +157,7 @@ namespace ConsoleApp1
 
         
     }
+    
+
 
 }

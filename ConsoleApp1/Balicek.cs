@@ -9,4 +9,5 @@ namespace ConsoleApp1
         public Balicek(IEnumerable<Karta> collection) : base(collection) { }
         public Balicek() : base(52) { }
     }
+    
 }
