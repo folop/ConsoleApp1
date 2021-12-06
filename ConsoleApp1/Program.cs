@@ -75,7 +75,7 @@ namespace ConsoleApp1
                                                     {
                                                         hodnota = Int32.TryParse(id, out hodnota) ? hodnota : id == "Q" ? 10 : 1;
                                                     }
-                                                    else if (id == "J")
+                                                    else if (id == "J") 
                                                     {
                                                         hodnota = Int32.TryParse(id, out hodnota) ? hodnota : id == "K" ? 10 : 1;
                                                     }else { 
@@ -89,7 +89,7 @@ namespace ConsoleApp1
                                                 }
                                             }
                                             pan_balicek.OrderBy(karta => System.Guid.NewGuid()).ToArray();
-
+                                            //this 
                                            
 
 
