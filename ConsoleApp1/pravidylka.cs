@@ -59,7 +59,12 @@ namespace ConsoleApp1
                 }
                 else if (karta.ID == "A")
                 {
-                    hodnota += 11;
+                    if (hodnota + 11 >21) {
+                        hodnota += 1;
+                    } else {
+                        hodnota += 11;
+                    }
+
                 }
                 else
                 {
@@ -78,6 +83,10 @@ namespace ConsoleApp1
             get {
                 return new Balicek(Existuj.OrderBy(karta => System.Guid.NewGuid()).ToArray());
             }
+        }
+
+        public static void DatKartu(Balicek haha, Balicek hoho) {
+            haha.Push(hoho.Pop());
         }
     }
 }

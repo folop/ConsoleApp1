@@ -16,7 +16,21 @@ namespace ConsoleApp1
         {
             Ruka = new Balicek();
         }
-        
-        
+        public static void DrziKarty( Balicek pomoc) {
+            Console.WriteLine("    ");
+            Console.WriteLine("Tvoje karty:");
+            Console.WriteLine("    ");
+            foreach (var kat in pomoc)
+            {
+                Console.Write(kat.ID);
+                Console.Write(kat.Barva);
+                Console.Write("    ");
+
+
+            }
+            Console.WriteLine("    ");
+        }
+
+
     }
 }

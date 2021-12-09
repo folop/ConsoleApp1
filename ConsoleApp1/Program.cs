@@ -38,6 +38,7 @@ namespace ConsoleApp1
                                 Console.WriteLine("oops, moc kratke :c");
                                         
                             }else {
+                                Dealer pan_pog = new Dealer();
                                 Hrac ten_co_hraje = new Hrac();
                                 ten_co_hraje.Jmeno = nick;
                                 ten_co_hraje.Penize = 1000;
@@ -60,12 +61,19 @@ namespace ConsoleApp1
 
                                         }
                                         else {
-
-
-                                            
-                                            
                                             //Pravidylka.Hodi(Pravidylka.Existuj);
                                             //Pravidylka.Hodi(Pravidylka.Mixatko);
+
+                                            ten_co_hraje.Ruka.Clear();
+                                            pan_pog.Ruka.Clear();
+                                            
+                                            Pravidylka.DatKartu(ten_co_hraje.Ruka, Pravidylka.Mixatko);
+                                            Pravidylka.DatKartu(pan_pog.Ruka, Pravidylka.Mixatko);
+                                            Pravidylka.DatKartu(ten_co_hraje.Ruka, Pravidylka.Mixatko);
+                                            Pravidylka.DatKartu(pan_pog.Ruka, Pravidylka.Mixatko);
+                                            Dealer.Schovat(pan_pog.Ruka);
+                                            Hrac.DrziKarty(ten_co_hraje.Ruka);
+
 
 
 
