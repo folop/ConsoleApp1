@@ -8,13 +8,13 @@ namespace ConsoleApp1
     {
         public string ID { get; set; }
         public string Barva { get; set; }
-        public int Hodnota { get; set; }
+        
 
-        public Karta(string id, string barva, int hodnota)
+        public Karta(string id, string barva)
         {
             ID = id;
             Barva = barva;
-            Hodnota = hodnota;
+            
         }
     }
 }
