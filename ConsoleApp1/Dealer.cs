@@ -39,5 +39,22 @@ namespace ConsoleApp1
             }
             Console.WriteLine("    ");
         }
+        public static void Ukazat(Balicek kocka) {
+            Console.WriteLine("    ");
+            Console.WriteLine("Dealerovi karty:");
+            Console.WriteLine("    ");
+            foreach (var kat in kocka)
+            {
+                Console.Write(kat.ID);
+                Console.Write(kat.Barva);
+                Console.Write("    ");
+
+
+            }
+            Console.WriteLine("    ");
+        }
+        public static void Lizak(Balicek dilerak, Balicek balicak, int hodnotak) { 
+            while( hodo)
+        }
     }
 }

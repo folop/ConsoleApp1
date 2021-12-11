@@ -10,14 +10,15 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             
-            var i_nick = true;
-            var i_vklad = true;
+            
+            
             var hra = true;
             while (hra == true)
             {
                 var menu = true;
                 while (menu == true)
                 {
+                    
                     Console.WriteLine("");
                     Console.WriteLine("0 - hrat");
                     Console.WriteLine("1 - zebricek");
@@ -27,11 +28,12 @@ namespace ConsoleApp1
                     Console.WriteLine("");
 
                     string volba = (Console.ReadLine());
-
+                    var i_nick = true;
                     if (volba == "0")
                     {
-                        
+                        //Console.Clear();
                         while (i_nick == true) {
+                            
                             Console.WriteLine("zadej svuj nick");
                             string nick = Console.ReadLine();
                             if (nick.Length <= 2) {
@@ -43,9 +45,11 @@ namespace ConsoleApp1
                                 ten_co_hraje.Jmeno = nick;
                                 ten_co_hraje.Penize = 1000;
 
-                                
+                                //Console.Clear();
+                                var i_vklad = true;
                                 while (i_vklad == true)
                                 {
+                                    
                                     Console.WriteLine("kolik chces vlozit?");
 
                                     try {
@@ -61,6 +65,7 @@ namespace ConsoleApp1
 
                                         }
                                         else {
+                                            //Console.Clear();
                                             //Pravidylka.Hodi(Pravidylka.Existuj);
                                             //Pravidylka.Hodi(Pravidylka.Mixatko);
 
@@ -76,8 +81,9 @@ namespace ConsoleApp1
                                             Pravidylka.DatKartu(pan_pog.Ruka, Pravidylka.Mixatko);
                                             Dealer.Schovat(pan_pog.Ruka);
                                             Hrac.DrziKarty(ten_co_hraje.Ruka);
-
-                                            
+                                            Console.WriteLine("    ");
+                                            Console.WriteLine("    ");
+                                            /*
                                             Pravidylka.Hodi(ten_co_hraje.Ruka, ref ten_co_hraje.HodnotaKaret);
                                             int mlem = ten_co_hraje.HodnotaKaret;
                                             Console.WriteLine(ten_co_hraje.HodnotaKaret);
@@ -85,7 +91,70 @@ namespace ConsoleApp1
                                             Pravidylka.Hodi(pan_pog.Ruka, ref pan_pog.HodnotaKaret);
                                             mlem = pan_pog.HodnotaKaret;
                                             Console.WriteLine(pan_pog.HodnotaKaret);
+                                            */
+                                            int i_dalsi = 0;
+                                            var pokr1 = true;
+                                            while (i_dalsi == 0) {
+                                                if (ten_co_hraje.HodnotaKaret >= 22) {
+                                                    
+                                                    while (pokr1 == true) {
+                                                        Console.WriteLine("mas v ruce vic nez 21");
+                                                        Console.WriteLine("chces si zahrat znovu? 0 - ano || 1 - ne");
+                                                        string i_pokr1 = Console.ReadLine();
+                                                        if (i_pokr1 == "0") {
+                                                            pokr1 = false;
+                                                            i_dalsi += 1;
+                                                            Console.Clear();
+                                                        }else if (i_pokr1 == "1" ){
+                                                            pokr1 = false;
+                                                            i_dalsi += 1;
+                                                            i_vklad = false;
+                                                            i_nick = false;
+                                                            break;
+                                                           
+                                                        }
+                                                        else
+                                                        {
+                                                            Console.WriteLine("spazny input");
+                                                        }
 
+
+                                                    }
+
+                                                   
+                                                } else
+                                                {
+
+                                                    Console.WriteLine("dalsi karta? 0 - ano || 1 - ne");
+                                                    string dalsi = Console.ReadLine();
+                                                    if (dalsi == "0") {
+                                                        Console.Clear();
+                                                        Pravidylka.DatKartu(ten_co_hraje.Ruka, Pravidylka.Mixatko);
+                                                        Pravidylka.Hodi(ten_co_hraje.Ruka, ref ten_co_hraje.HodnotaKaret);
+                                                        int mlem = ten_co_hraje.HodnotaKaret;
+                                                        Console.WriteLine(ten_co_hraje.HodnotaKaret);
+                                                       
+
+                                                        
+                                                        Dealer.Schovat(pan_pog.Ruka);
+                                                        Hrac.DrziKarty(ten_co_hraje.Ruka);
+                                                        Console.WriteLine("    ");
+                                                        Console.WriteLine("    ");
+                                                    } else if (dalsi == "1") {
+                                                        Console.WriteLine("sah");
+                                                        i_dalsi = 1;
+                                                        Dealer.Ukazat(pan_pog.Ruka);
+                                                        Hrac.DrziKarty(ten_co_hraje.Ruka);
+                                                        Pravidylka.Hodi(pan_pog.Ruka, ref pan_pog.HodnotaKaret);
+                                                        int mlem = pan_pog.HodnotaKaret;
+                                                        Console.WriteLine(pan_pog.HodnotaKaret);
+                                                        Dealer.Lizak(pan_pog.Ruka, Pravidylka.Mixatko, pan_pog.HodnotaKaret);
+
+                                                    } else {
+                                                        Console.WriteLine("spazny input");
+                                                    }
+                                                }
+                                            }
 
 
 
