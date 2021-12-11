@@ -8,7 +8,7 @@ namespace ConsoleApp1
     class Hrac
     {
         public Balicek Ruka;
-
+        public int HodnotaKaret;
         public string Jmeno;
         public int Penize;
 

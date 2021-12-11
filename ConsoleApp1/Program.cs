@@ -66,7 +66,10 @@ namespace ConsoleApp1
 
                                             ten_co_hraje.Ruka.Clear();
                                             pan_pog.Ruka.Clear();
-                                            
+
+                                            ten_co_hraje.HodnotaKaret = 0;
+                                            pan_pog.HodnotaKaret = 0;
+
                                             Pravidylka.DatKartu(ten_co_hraje.Ruka, Pravidylka.Mixatko);
                                             Pravidylka.DatKartu(pan_pog.Ruka, Pravidylka.Mixatko);
                                             Pravidylka.DatKartu(ten_co_hraje.Ruka, Pravidylka.Mixatko);
@@ -74,6 +77,14 @@ namespace ConsoleApp1
                                             Dealer.Schovat(pan_pog.Ruka);
                                             Hrac.DrziKarty(ten_co_hraje.Ruka);
 
+                                            
+                                            Pravidylka.Hodi(ten_co_hraje.Ruka, ref ten_co_hraje.HodnotaKaret);
+                                            int mlem = ten_co_hraje.HodnotaKaret;
+                                            Console.WriteLine(ten_co_hraje.HodnotaKaret);
+
+                                            Pravidylka.Hodi(pan_pog.Ruka, ref pan_pog.HodnotaKaret);
+                                            mlem = pan_pog.HodnotaKaret;
+                                            Console.WriteLine(pan_pog.HodnotaKaret);
 
 
 

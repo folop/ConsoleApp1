@@ -40,11 +40,11 @@ namespace ConsoleApp1
 
 
 
-        public static void Hodi(Balicek uwu) {
+
+        public static void Hodi(Balicek uwu, ref int mlem) {
             int hodnota = 0;
             foreach (var karta in uwu ) {
-                Console.Write(karta.Barva);
-                Console.WriteLine(karta.ID);
+           
                 if (karta.ID == "J")
                 {
                     hodnota += 10;
@@ -73,7 +73,9 @@ namespace ConsoleApp1
 
 
             }
-            Console.WriteLine(hodnota);
+            
+            
+            mlem = hodnota;
         }
 
 
@@ -88,5 +90,7 @@ namespace ConsoleApp1
         public static void DatKartu(Balicek haha, Balicek hoho) {
             haha.Push(hoho.Pop());
         }
+
+       
     }
 }

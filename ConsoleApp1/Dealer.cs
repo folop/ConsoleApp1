@@ -7,8 +7,8 @@ namespace ConsoleApp1
     class Dealer
     {
         public Balicek Ruka;
+        public int HodnotaKaret;
 
-      
 
         public Dealer()
         {
@@ -16,7 +16,7 @@ namespace ConsoleApp1
         }
         public static void Schovat(Balicek pog) {
             int dolu = 1;
-            Console.WriteLine("    ");
+            
             Console.WriteLine("Dealerovi karty:");
             Console.WriteLine("    ");
             foreach (var kat in pog)
