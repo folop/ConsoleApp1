@@ -92,6 +92,9 @@ namespace ConsoleApp1
                                             mlem = pan_pog.HodnotaKaret;
                                             Console.WriteLine(pan_pog.HodnotaKaret);
                                             */
+
+                                            Pravidylka.Acko(ten_co_hraje.Ruka, ten_co_hraje.HodnotaKaret);
+                                            Pravidylka.Acko(pan_pog.Ruka, pan_pog.HodnotaKaret);
                                             int i_dalsi = 0;
                                             var pokr1 = true;
                                             while (i_dalsi == 0) {
@@ -129,6 +132,8 @@ namespace ConsoleApp1
                                                     string dalsi = Console.ReadLine();
                                                     if (dalsi == "0") {
                                                         Console.Clear();
+                                                        Pravidylka.Acko(ten_co_hraje.Ruka, ten_co_hraje.HodnotaKaret);
+                                                        Pravidylka.Acko(pan_pog.Ruka, pan_pog.HodnotaKaret);
                                                         Pravidylka.DatKartu(ten_co_hraje.Ruka, Pravidylka.Mixatko);
                                                         Pravidylka.Hodi(ten_co_hraje.Ruka, ref ten_co_hraje.HodnotaKaret);
                                                         int mlem = ten_co_hraje.HodnotaKaret;
@@ -143,15 +148,57 @@ namespace ConsoleApp1
                                                     } else if (dalsi == "1") {
                                                         Console.WriteLine("sah");
                                                         i_dalsi = 1;
+                                                        Pravidylka.Acko(ten_co_hraje.Ruka, ten_co_hraje.HodnotaKaret);
+                                                        Pravidylka.Acko(pan_pog.Ruka, pan_pog.HodnotaKaret);
                                                         Dealer.Ukazat(pan_pog.Ruka);
                                                         Hrac.DrziKarty(ten_co_hraje.Ruka);
                                                         Pravidylka.Hodi(pan_pog.Ruka, ref pan_pog.HodnotaKaret);
                                                         int mlem = pan_pog.HodnotaKaret;
                                                         Console.WriteLine(pan_pog.HodnotaKaret);
+
+
                                                         Dealer.Lizak(pan_pog.Ruka, Pravidylka.Mixatko, pan_pog.HodnotaKaret);
+                                                        Console.Clear();
+                                                        Dealer.Ukazat(pan_pog.Ruka);
+                                                        Hrac.DrziKarty(ten_co_hraje.Ruka);
+                                                        
+
+                                                        Pravidylka.Vyhodnoceni(ten_co_hraje.HodnotaKaret, pan_pog.HodnotaKaret);
+                                                        var pokr2 = true;
+                                                        while (pokr2 == true)
+                                                        {
+                                                            Pravidylka.Acko(ten_co_hraje.Ruka, ten_co_hraje.HodnotaKaret);
+                                                            Pravidylka.Acko(pan_pog.Ruka, pan_pog.HodnotaKaret);
+                                                            Console.WriteLine("chces si zahrat znovu? 0 - ano || 1 - ne");
+                                                            string i_pokr1 = Console.ReadLine();
+                                                            if (i_pokr1 == "0")
+                                                            {
+                                                                pokr2 = false;
+                                                                i_dalsi += 1;
+                                                                Console.Clear();
+                                                            }
+                                                            else if (i_pokr1 == "1")
+                                                            {
+                                                                pokr2 = false;
+                                                                i_dalsi += 1;
+                                                                i_vklad = false;
+                                                                i_nick = false;
+                                                                break;
+
+                                                            }
+                                                            else
+                                                            {
+                                                                Console.WriteLine("spazny input");
+                                                            }
+
+
+                                                        }
+
 
                                                     } else {
                                                         Console.WriteLine("spazny input");
+                                                        
+                                                        
                                                     }
                                                 }
                                             }

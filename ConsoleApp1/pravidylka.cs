@@ -59,11 +59,7 @@ namespace ConsoleApp1
                 }
                 else if (karta.ID == "A")
                 {
-                    if (hodnota + 11 >21) {
-                        hodnota += 1;
-                    } else {
-                        hodnota += 11;
-                    }
+                    hodnota += 11;
 
                 }
                 else
@@ -77,7 +73,16 @@ namespace ConsoleApp1
             
             mlem = hodnota;
         }
-
+        public static void Acko (Balicek kontrola, int hodnotka) {
+            foreach (var karta in kontrola) { 
+                if (karta.ID == "A") {
+                    if (hodnotka > 21) {
+                        hodnotka -= 10;
+                        
+                    }
+                }
+            }
+        }
 
 
 
@@ -91,7 +96,44 @@ namespace ConsoleApp1
             haha.Push(hoho.Pop());
         }
 
-       
+        public static void Vyhodnoceni (int hhodnota, int dhodnota) {
+        
+            if (dhodnota == 21)
+            {
 
-}
+                if (hhodnota == 21)
+                {
+                    
+                    Console.WriteLine("remiza");
+                }
+                else
+                {
+                    
+                    Console.WriteLine("prohra");
+
+                }
+            }
+            else if (dhodnota > 21)
+            {
+                
+                Console.WriteLine("prohra");
+
+            }
+            else if (hhodnota == 21) {
+                
+                Console.WriteLine("vyhra");
+            } else if (hhodnota > dhodnota){
+                
+                Console.WriteLine("vyhra");
+            } else if (hhodnota < dhodnota)
+            {
+                
+                Console.WriteLine("prohra");
+            }
+
+
+        }
+
+
+    }
 }

@@ -53,8 +53,15 @@ namespace ConsoleApp1
             }
             Console.WriteLine("    ");
         }
-        public static void Lizak(Balicek dilerak, Balicek balicak, int hodnotak) { 
-            while( hodo)
+        public static void Lizak(Balicek dilerak, Balicek balicak, int hodnotak) {
+            Console.WriteLine(hodnotak);
+            while(hodnotak < 17) {
+                dilerak.Push(balicak.Pop());
+                Dealer.Ukazat(dilerak);
+                Pravidylka.Hodi(dilerak, ref hodnotak);
+                int mlem = hodnotak;
+               
+            }
         }
     }
 }
